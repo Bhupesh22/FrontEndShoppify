@@ -19,6 +19,7 @@ import { ForgotserviceService } from './Services/forgotservice.service';
 import{FilterByPriceComponent} from './Components/filter-by-price/filter-by-price.component';
 import {UserprofileComponent} from './Components/userprofile/userprofile.component';
 import {UserchangepasswordComponent} from './Components/userchangepassword/userchangepassword.component';
+import {RetailerforgotpasswordComponent} from './Components/retailerforgotpassword/retailerforgotpassword.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"home", pathMatch:'full'},
@@ -37,7 +38,8 @@ const routes: Routes = [
   {path:"searchproduct",component:SearchProductComponent},
   {path:"filterbyprice",component:FilterByPriceComponent},
   {path:"userprofile",component:UserprofileComponent},
-  {path:"changepassuser",component:UserchangepasswordComponent}
+  {path:"changepassuser",component:UserchangepasswordComponent},
+  {path:"forgotpasswordretailer",component:RetailerforgotpasswordComponent}
 ];
 
 @NgModule({

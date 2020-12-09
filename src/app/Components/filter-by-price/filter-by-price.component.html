@@ -38,7 +38,7 @@
 
         <button class="btn btn-dark" #category1 value="Mobile and Accessories"
             (click)="popup(category1.value)">Mobile and Accessories</button>
-        <button class="btn btn-dark" #category2 value="TV & Home Entertainment" (click)="popup(category2.value)">TV &
+        <button class="btn btn-dark" #category2 value="TV and Home Entertainment" (click)="popup(category2.value)">TV &
             Home Entertainment</button>
         <button class="btn btn-dark" #category3 value="Watches" (click)="popup(category3.value)">Watches</button>
         <button class="btn btn-dark" #category4 value="Shoes" (click)="popup(category4.value)">Shoes</button>
@@ -65,7 +65,7 @@
           <div class="card-body">
               <div class="card-text">
                   <h3 class = "card-title"><u>{{ product.productname }}</u></h3>
-                  <h4  style = "color: #3498DB;"> Price : {{ product.productprice }} &#8377;</h4>
+                  <h4  style = "color:red"> Price : {{ product.productprice }} &#8377;</h4>
                   <h6 style = "color: grey "> Description: {{ product.productdescription }}</h6>
                   <!--<h5 style = "color: red;"> Product Quantity : {{ product.productquantity}} pcs</h5>
                   --><br><br>
@@ -122,15 +122,15 @@
       <div class="container">
         <div class="row">    
         
-        <div class="col-md-3 mx-auto my-5" *ngFor = "let product of filterbycategory">
+        <div class="col-md-3 mx-auto my-5 d-flex" *ngFor = "let product of filterbycategory">
         
           <div class="card full">
               <img class="card-img-top" src= "https://localhost:44369/Image/{{product. productimage1}}" alt="product" width="250px" height="200px">
               <div class="card-body">
                   <div class="card-text">
                       <h3 class = "card-title"><u>{{ product.productname }}</u></h3>
-                      <h4  style = "color: #3498DB;"> Price : {{ product.productprice }} &#8377;</h4>
-                      <h5 style = "color:grey "> Description: {{ product.productdescription }}</h5>
+                      <h4  style = "color: red;"> Price : {{ product.productprice }} &#8377;</h4>
+                      <h6 style = "color:grey "> Description: {{ product.productdescription }}</h6>
                       <!--<h5 style = "color: red;"> Product Quantity : {{ product.productquantity}} pcs</h5><hr>-->
                       <br><br>
                       <button class="btn1 btn-warning" (click)=openModal(product.productid,product.productname,product.productprice,product.productquantity,product.productdescription,product.productbrand,product.productimage1,product.retailerid,product.categoryid)

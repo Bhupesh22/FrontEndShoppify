@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PasswordChecker } from '../../custom-validator/password-checker';
-import { ForgotserviceService } from '../../Services/forgotservice.service';
 import {Router} from '@angular/router';
+import { ForgotretailerService } from '../../Services/forgotretailer.service';
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.css']
+  selector: 'app-retailerforgotpassword',
+  templateUrl: './retailerforgotpassword.component.html',
+  styleUrls: ['./retailerforgotpassword.component.css']
 })
-export class ForgotPasswordComponent implements OnInit {
+export class RetailerforgotpasswordComponent implements OnInit {
 
   forgetPasswordOTPForm : FormGroup
   otpstatus : boolean = false;
@@ -18,9 +18,9 @@ export class ForgotPasswordComponent implements OnInit {
   userotp : any;
   checkotp : number;
 
-  //otppattern : string = "\d{4}";
   otppattern : string = "^[0-9]{4}";
-  constructor(private formBuilder : FormBuilder, private forgotserv : ForgotserviceService,private router:Router) { }
+
+  constructor(private formBuilder : FormBuilder,private router : Router, private forgotretail:ForgotretailerService ) { }
 
   ngOnInit(): void {
     this.forgetPasswordOTPForm = this.formBuilder.group({
@@ -32,18 +32,16 @@ export class ForgotPasswordComponent implements OnInit {
       validators: PasswordChecker("newpassword", "confirmnewpassword"),
     })
   }
-
   get l(){
     return this.forgetPasswordOTPForm.controls;
   }
-
   doChange(){
     if(this.checkotp == this.forgetPasswordOTPForm.value.otp && this.forgetPasswordOTPForm.valid){
-      this.forgotserv.updateUser(this.forgetPasswordOTPForm.value.useremail,this.forgetPasswordOTPForm.value.newpassword).subscribe(
+      this.forgotretail.updateUser(this.forgetPasswordOTPForm.value.useremail,this.forgetPasswordOTPForm.value.newpassword).subscribe(
         data => { 
           if(data == "Valid"){
             alert("Password changed successfully");
-            this.router.navigate(['userlogin'])
+            this.router.navigate(['retailerlogin'])
           }
          }
       )
@@ -56,11 +54,11 @@ export class ForgotPasswordComponent implements OnInit {
 
   getOtp(){
     this.otpstatus = !this.otpstatus
-    this.forgotserv.sendOTP(this.forgetPasswordOTPForm.value.useremail).subscribe(
+    this.forgotretail.sendOTP(this.forgetPasswordOTPForm.value.useremail).subscribe(
       data => {
         console.log(data);
         if(data == 0){
-          alert('You are not registered user');
+          alert('You are not registered retailer');
           this.buttonname = 'Get OTP';
           this.otpstatus = !this.otpstatus
           this.forgetPasswordOTPForm.reset();

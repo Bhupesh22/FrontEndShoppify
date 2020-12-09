@@ -60,7 +60,7 @@ export class ProductUploadComponent implements OnInit {
      }
    );
    alert('Product uploaded');
-   this.router.navigate(['home']);
+   this.router.navigate(['retailerdashboard']);
   }
 
 }

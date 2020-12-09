@@ -38,6 +38,8 @@ import {SearchProductService} from './Services/search-product.service';
 import { SearchProductComponent } from './Components/search-product/search-product.component';
 import { UserprofileComponent } from './Components/userprofile/userprofile.component';
 import { UserchangepasswordComponent } from './Components/userchangepassword/userchangepassword.component';
+import { RetailerforgotpasswordComponent } from './Components/retailerforgotpassword/retailerforgotpassword.component';
+import { ForgotretailerService} from './Services/forgotretailer.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { UserchangepasswordComponent } from './Components/userchangepassword/use
     FilterByPriceComponent,
     SearchProductComponent,
     UserprofileComponent,
-    UserchangepasswordComponent
+    UserchangepasswordComponent,
+    RetailerforgotpasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,7 @@ import { UserchangepasswordComponent } from './Components/userchangepassword/use
   ],
   providers: [AdminserviceService,RetailerloginService,RetailerRegisterService, UploadProductsService,ProductlistService,
     LoginService,UserRegisterService,ForgotserviceService,AddToCartService,CartdashserviceService,
-    ChangepasswordService,ProfileService,FilterService,SearchProductService],
+    ChangepasswordService,ProfileService,FilterService,SearchProductService,ForgotretailerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
