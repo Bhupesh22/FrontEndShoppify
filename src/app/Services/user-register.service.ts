@@ -10,7 +10,7 @@ export class UserRegisterService {
 
   constructor(private http : HttpClient) { }
 
-  UserRegister(username:string, useremail:string, userphone:string, userpassword :string
+  UserRegister(useremail:string, username:string, userphone:string, userpassword :string
     ,userapartment:string, userstreet:string, usertown:string, userstate:string, userpincode:string,
     usercountry:string):Observable<any>{
       const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
