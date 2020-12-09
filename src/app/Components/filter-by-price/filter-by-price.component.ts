@@ -55,14 +55,16 @@ export class FilterByPriceComponent implements OnInit {
 
   addtocart(productid:number,quantity : number){
     console.log(quantity);
-    this.status = this.addtocartserv.insertIntoCart(this.useremail, productid,quantity).subscribe(
-      data => {
-        if(data == "Success"){
-          alert("Product successfully added");
+    if(this.useremail != null){
+      this.status = this.addtocartserv.insertIntoCart(this.useremail, productid,quantity).subscribe(
+        data => {
+          if(data == "Success"){
+            alert("Product successfully added");
+          }
         }
-      }
-    )
+      )
+    }else{
+      alert("Please login to buy products");
+    }
   }
-
-
 }
