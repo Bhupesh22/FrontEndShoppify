@@ -58,7 +58,7 @@ export class RetailerforgotpasswordComponent implements OnInit {
       data => {
         console.log(data);
         if(data == 0){
-          alert('You are not registered retailer');
+          alert('Please enter correct email id');
           this.buttonname = 'Get OTP';
           this.otpstatus = !this.otpstatus
           this.forgetPasswordOTPForm.reset();

@@ -41,6 +41,8 @@ export class RetailerRegisterComponent implements OnInit {
         if(this.status=="valid"){
           alert("Registeration Successful");
           this.router.navigate(['retailerlogin']);
+        }else{
+          alert('Email id already registered.');
         }
       }
     )

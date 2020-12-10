@@ -307,7 +307,7 @@ export class UserRegisterComponent implements OnInit {
             alert("Successfully registered");
             this.router.navigate(['userlogin']);
           }else{
-            alert("could not register");
+            alert("Email id is already registered");
           }
         }
       )
