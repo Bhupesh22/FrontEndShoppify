@@ -22,4 +22,5 @@ export class ChangepasswordService {
     return this.http.put<any>(this.url+"userchangepassword?useremail="+useremail+
     "&userpassword="+userpassword+"&newpassword="+newpassword,httpheader);
   }
+  
 }
